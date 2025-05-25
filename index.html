@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Stream Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for Inter font and general body styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* Dark background */
+            color: #e2e8f0; /* Light text */
+            min-height: 100vh; /* Ensure body takes full viewport height */
+            display: flex;
+            flex-direction: column;
+        }
+        /* Hide scrollbar for a cleaner look */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        body {
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+        }
+        /* Ensure iframe is responsive */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 0.75rem; /* rounded-xl */
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center p-4 sm:p-8">
+
+    <header class="w-full max-w-6xl text-center mb-8">
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-blue-400 mb-2">Movie Stream Hub</h1>
+        <p class="text-lg text-gray-400">Your ultimate destination for cinematic experiences.</p>
+    </header>
+
+    <section id="video-player-section" class="w-full max-w-4xl mb-8 hidden">
+        <div class="bg-gray-800 p-4 rounded-xl shadow-lg">
+            <h2 id="current-movie-title" class="text-2xl font-bold mb-4 text-center text-white">Now Playing:</h2>
+            <div class="video-container">
+                <iframe id="movie-player" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <button id="close-player-btn" class="mt-4 w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                Close Player
+            </button>
+        </div>
+    </section>
+
+    <main class="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+        <div class="movie-card bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+            <img src="https://placehold.co/400x600/3182CE/FFFFFF?text=Movie+1+Poster" alt="Movie 1 Poster" class="w-full h-64 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-white mb-2">The Quantum Leap</h3>
+                <p class="text-gray-400 text-sm mb-4">A thrilling journey through time and space, exploring the boundaries of reality.</p>
+                <button class="watch-now-btn w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+                        data-direct-link="https://www.example.com/movie1-full-hd"
+                        data-embed-link="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        data-movie-title="The Quantum Leap">
+                    Watch Now
+                </button>
+            </div>
+        </div>
+
+        <div class="movie-card bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+            <img src="https://placehold.co/400x600/319795/FFFFFF?text=Movie+2+Poster" alt="Movie 2 Poster" class="w-full h-64 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-white mb-2">Echoes of the Past</h3>
+                <p class="text-gray-400 text-sm mb-4">A gripping historical drama revealing untold stories of courage and sacrifice.</p>
+                <button class="watch-now-btn w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+                        data-direct-link="https://www.example.com/movie2-stream-online"
+                        data-embed-link="https://www.youtube.com/embed/qp4xRzE94Q8"
+                        data-movie-title="Echoes of the Past">
+                    Watch Now
+                </button>
+            </div>
+        </div>
+
+        <div class="movie-card bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+            <img src="https://placehold.co/400x600/805AD5/FFFFFF?text=Movie+3+Poster" alt="Movie 3 Poster" class="w-full h-64 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-white mb-2">Crimson Horizon</h3>
+                <p class="text-gray-400 text-sm mb-4">An epic fantasy adventure where magic and destiny intertwine.</p>
+                <button class="watch-now-btn w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+                        data-direct-link="https://www.example.com/movie3-watch-free"
+                        data-embed-link="https://www.youtube.com/embed/M7lc1UVf-VE"
+                        data-movie-title="Crimson Horizon">
+                    Watch Now
+                </button>
+            </div>
+        </div>
+
+        <div class="movie-card bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+            <img src="https://placehold.co/400x600/DD6B20/FFFFFF?text=Movie+4+Poster" alt="Movie 4 Poster" class="w-full h-64 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-white mb-2">City of Shadows</h3>
+                <p class="text-gray-400 text-sm mb-4">A dark detective story set in a sprawling metropolis riddled with crime.</p>
+                <button class="watch-now-btn w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+                        data-direct-link="https://www.example.com/movie4-online"
+                        data-embed-link="https://www.youtube.com/live/PlwU3w-Gaak"
+                        data-movie-title="City of Shadows">
+                    Watch Now
+                </button>
+            </div>
+        </div>
+        <div class="movie-card bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+            <img src="https://placehold.co/400x600/DD6B20/FFFFFF?text=Movie+5+Poster" alt="Movie 5 Poster" class="w-full h-64 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-white mb-2">City of Shadows</h3>
+                <p class="text-gray-400 text-sm mb-4">A dark detective story set in a sprawling metropolis riddled with crime.</p>
+                <button class="watch-now-btn w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+                        data-direct-link="https://www.example.com/movie4-online"
+                        data-embed-link="https://www.youtube.com/live/PlwU3w-Gaak"
+                        data-movie-title="City of Shadows">
+                    Watch Now
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get all "Watch Now" buttons
+            const watchNowButtons = document.querySelectorAll('.watch-now-btn');
+            // Get the video player elements
+            const videoPlayerSection = document.getElementById('video-player-section');
+            const moviePlayer = document.getElementById('movie-player');
+            const currentMovieTitle = document.getElementById('current-movie-title');
+            const closePlayerBtn = document.getElementById('close-player-btn');
+
+            // Add click event listener to each "Watch Now" button
+            watchNowButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const directLink = button.dataset.directLink; // Link to open in a new tab
+                    const embedLink = button.dataset.embedLink;   // Link for the on-page iframe player
+                    const movieTitle = button.dataset.movieTitle;
+
+                    // 1. Open new window with direct link
+                    // This will open a new blank tab/window with the specified URL.
+                    // Note: Browser pop-up blockers might prevent this if not triggered by a direct user action,
+                    // but a direct click usually bypasses this.
+                    window.open(directLink, '_blank');
+
+                    // 2. Display video player on the current page
+                    currentMovieTitle.textContent = `Now Playing: ${movieTitle}`;
+                    // Set the iframe's source to the embed link
+                    moviePlayer.src = embedLink;
+                    // Remove the 'hidden' class to make the video player visible
+                    videoPlayerSection.classList.remove('hidden');
+
+                    // Scroll to the video player section for better UX on smaller screens
+                    // This ensures the user sees the video player immediately after clicking "Watch Now"
+                    videoPlayerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+
+            // Add click event listener to the "Close Player" button
+            closePlayerBtn.addEventListener('click', () => {
+                // Hide the video player section
+                videoPlayerSection.classList.add('hidden');
+                // Stop the video by clearing the iframe src (this stops playback)
+                moviePlayer.src = '';
+                currentMovieTitle.textContent = 'Now Playing:'; // Reset title
+            });
+        });
+    </script>
+</body>
+</html>
